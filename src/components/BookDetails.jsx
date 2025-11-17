@@ -13,11 +13,10 @@ export default function BookDetails({ book, onDismiss }) {
 
     // Build a list of progressively simpler queries to try
     const candidates = [];
-    const title = (book.title || "").trim();
-    const author = (book.author || "").trim();
-    const publisher = (book.publisher || "").trim();
+    const title = (book.title || "").trim().replaceAll(" ", "");
+    const author = (book.author || "").trim().replaceAll(" ", "");
+    const publisher = (book.publisher || "").trim().replaceAll(" ", "");
 
-    if (title && author) candidates.push(`${title} ${author}`);
     if (title) candidates.push(title);
     if (author) candidates.push(author);
     if (publisher) candidates.push(publisher);
